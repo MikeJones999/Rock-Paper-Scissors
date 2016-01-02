@@ -14,7 +14,7 @@ public abstract class GameObj {
 	
 	public static GameObj newGameObj(String gameObjName) throws Exception 
 	{
-		
+		//Need to address the inconsistent capitalisation of each game object
 		System.out.println("gameObj: " + gameObjName);
 		StringBuilder str = new StringBuilder();
 		str.append("GameObjs.");
