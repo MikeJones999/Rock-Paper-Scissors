@@ -6,11 +6,17 @@ public abstract class GameObj {
 		//super();
 	}
 
+	
+	
 	public abstract int beats(Rock rock);
 
 	public abstract int beats(Paper paper);
 
 	public abstract int beats(Scissors paper);
+	
+	
+	
+	
 	
 	public static GameObj newGameObj(String gameObjName) throws Exception 
 	{

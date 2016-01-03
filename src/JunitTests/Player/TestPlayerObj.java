@@ -15,8 +15,7 @@ public class TestPlayerObj {
 	public void testPlayerCreationOfHuman() {
 		
 		Player human = new Human();
-		assertTrue(human instanceof Player);
-		
+		assertTrue(human instanceof Player);		
 	}
 
 	

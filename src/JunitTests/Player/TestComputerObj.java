@@ -36,8 +36,9 @@ public class TestComputerObj {
 	{
 		Computer comp = new Computer();
 		GameObj scissors = comp.chooseGameObj("Scissors");		
-		assertTrue(scissors instanceof Scissors);
-		
+		assertTrue(scissors instanceof Scissors);		
 	}
-
+	
+	
+	
 }
