@@ -14,8 +14,7 @@ public class TestComputerObj {
 
 	@Test
 	public void testComputerChooseRock() throws Exception 
-	{
-		
+	{		
 		Computer comp = new Computer();
 		GameObj rock = comp.chooseGameObj("Rock");	
 		assertTrue(rock instanceof Rock);		
@@ -27,8 +26,7 @@ public class TestComputerObj {
 	{
 		Computer comp = new Computer();
 		GameObj paper = comp.chooseGameObj("Paper");		
-		assertTrue(paper instanceof Paper);
-		
+		assertTrue(paper instanceof Paper);		
 	}
 	
 	@Test 

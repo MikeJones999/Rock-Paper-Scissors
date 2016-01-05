@@ -4,7 +4,7 @@ package PlayerObjs;
 public class PlayerFactory {
 
 	
-	public Player getPlayer(String playerType) throws Exception
+	public Player getPlayer(String playerType) throws Exception 
 	{
 		if(playerType == null)
 		{

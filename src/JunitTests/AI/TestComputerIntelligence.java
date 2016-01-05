@@ -2,21 +2,21 @@ package JunitTests.AI;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import computerIntelligence.ComputerIntelFactory;
 import computerIntelligence.Intelligence;
 import computerIntelligence.IntermediateAI;
 import computerIntelligence.NoviceAI;
 import GameObjs.GameObj;
 import GameObjs.GameObjectChoice;
-import GameObjs.Rock;
+
 import PlayerObjs.Computer;
-import PlayerObjs.Player;
-import PlayerObjs.PlayerFactory;
+
 
 public class TestComputerIntelligence {
 
+	@Ignore
 	@Test
 	public void testComputerNoviceRock()
 	{
@@ -38,7 +38,7 @@ public class TestComputerIntelligence {
 		assertFalse(choice.equalsIgnoreCase("Scissors"));
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testComputerIntelligence()
 	{
@@ -47,6 +47,7 @@ public class TestComputerIntelligence {
 		assertTrue(choice.equalsIgnoreCase("rock"));		
 	}
 	
+	@Ignore
 	@Test
 	public void testComputerintelligenceEnumRock()
 	{		
@@ -81,23 +82,16 @@ public class TestComputerIntelligence {
 		assertTrue(obj instanceof GameObj);			
 	}
 	
-//	@Test
-//	public void tesComputerNoviceChooseRandomGameObj() throws Exception {		
-//		
-//		PlayerFactory playFact = new PlayerFactory();
-//		Player p1 = playFact.getPlayer("Computer");		
-//		
-//		//novice AI - playerfactory creates this
-//		ComputerIntelFactory intelFact = new ComputerIntelFactory();
-//		Intelligence intel = intelFact.getIntel("Novice");
-//		
-//		
-//		
-//		GameObj obj = p1.chooseGameObj(intel.makeChoice());
-//		
-//		System.out.println(obj);		
-//
-//		
-//	}
-
+	
+	@Test
+	public void testComputerNoviceAIRandomChoice() throws Exception
+	{
+		Intelligence novice = new NoviceAI();
+		String returnedGameObjString = novice.makeChoice();
+		Computer comp = new Computer();
+		GameObj obj = comp.chooseGameObj(returnedGameObjString);	
+		assertTrue(obj instanceof GameObj);			
+	}
+	
+	
 }
