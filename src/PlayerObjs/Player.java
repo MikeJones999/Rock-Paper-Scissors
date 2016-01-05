@@ -1,11 +1,21 @@
 package PlayerObjs;
 
+import computerIntelligence.Intelligence;
 import GameObjs.GameObj;
 
-public interface Player {
+public abstract class Player {
 	
-	public GameObj chooseGameObj(String gameObj) throws Exception;
+	
+	public Intelligence intelLevel;
+	
+	public void setIntelLevel(Intelligence intelLevel)
+	{
+		this.intelLevel = intelLevel;
+	}
+	
+	public abstract GameObj chooseGameObj(String gameObj) throws Exception;
 
+	public abstract String intelChooseGameObj() throws Exception;
 
 	
 }
