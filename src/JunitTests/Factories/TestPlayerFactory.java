@@ -6,6 +6,7 @@ import org.junit.Test;
 
 
 import PlayerObjs.Computer;
+import PlayerObjs.Human;
 import PlayerObjs.Player;
 import PlayerObjs.PlayerFactory;
 
@@ -37,9 +38,12 @@ public class TestPlayerFactory {
 	}
 	
 	
+	@Test
+	public void testPlayerFactoryGetHuman() throws Exception
+	{
+		PlayerFactory playFact = new PlayerFactory();
+		Player p1 = playFact.getPlayer("Human");
+		assertTrue(p1 instanceof Human);		
+	}
 	
-
-//	Intelligence novice = new NoviceAI();
-//		String noviceChoice = novice.makeChoice();
-//		p1.chooseGameObj(noviceChoice);
 }

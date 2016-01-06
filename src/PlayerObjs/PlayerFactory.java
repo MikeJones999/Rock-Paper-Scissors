@@ -18,7 +18,6 @@ public class PlayerFactory {
 		
 		else if(playerType.equalsIgnoreCase("COMPUTER"))
 		{
-			//return default novice Computer - random guessing
 			
 			return new Computer();
 		}
