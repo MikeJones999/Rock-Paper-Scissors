@@ -9,7 +9,6 @@ import computerIntelligence.NoviceAI;
 import PlayerObjs.Computer;
 import PlayerObjs.Human;
 import PlayerObjs.Player;
-import PlayerObjs.PlayerFactory;
 
 public class TestPlayerObj {
 
@@ -40,26 +39,6 @@ public class TestPlayerObj {
 		
 		assertTrue(result.equals("Rock") || result.equals("Paper") || result.equals("Scissors"));
 	}
-	
-	
-//	//Only ever going to be two player types - AI or Humans - no need for further reflection
-//	@Test
-//	public void testPlayerfactoryHuman() throws Exception
-//	{
-//		PlayerFactory playFact = new PlayerFactory();
-//		Player p1 = playFact.getPlayer("Human");		
-//		assertTrue(p1 instanceof Human);
-//		
-//	}
-//	
-//	@Test
-//	public void testPlayerfactoryComputer() throws Exception
-//	{
-//		PlayerFactory playFact = new PlayerFactory();
-//		Player p1 = playFact.getPlayer("Computer");		
-//		assertTrue(p1 instanceof Computer);		
-//	}
-//	
-	
+		
 	
 }

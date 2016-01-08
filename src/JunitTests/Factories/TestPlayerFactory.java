@@ -2,17 +2,20 @@ package JunitTests.Factories;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 
 import PlayerObjs.Computer;
+import PlayerObjs.Human;
+import PlayerObjs.NullPlayerObj;
 import PlayerObjs.Player;
 import PlayerObjs.PlayerFactory;
 
 public class TestPlayerFactory {
 
 	
-	
+	@Ignore
 	@Test (expected = Exception.class)
 	public void testPlayerFactoryNullThrowExcpetion() throws Exception
 	{
@@ -20,6 +23,7 @@ public class TestPlayerFactory {
 		Player p1 = playFact.getPlayer(null);
 	}
 	
+	@Ignore
 	@Test (expected = Exception.class)
 	public void testPlayerFactoryInvalidChoiceThrowException() throws Exception
 	{
@@ -27,9 +31,26 @@ public class TestPlayerFactory {
 		Player p1 = playFact.getPlayer("Chicken");		
 	}
 	
+	@Ignore
+	@Test
+	public void testPlayerFactorReturnNullPlayer() throws Exception
+	{
+		PlayerFactory playFact = new PlayerFactory();
+		Player p1 = playFact.getPlayer("Chicken");
+		assertTrue(p1 instanceof NullPlayerObj);
+	}
+	
 	
 	@Test
-	public void testPlayerFactoryGetComputer() throws Exception 
+	public void testPlayerFactoryGetNullPlayerFromNullEntry()
+	{			
+		PlayerFactory playFact = new PlayerFactory();
+		Player p1 = playFact.getPlayer(null);			
+		assertTrue(p1 instanceof NullPlayerObj);		
+	}
+	
+	@Test
+	public void testPlayerFactoryGetComputer()
 	{			
 		PlayerFactory playFact = new PlayerFactory();
 		Player p1 = playFact.getPlayer("Computer");			
@@ -37,9 +58,12 @@ public class TestPlayerFactory {
 	}
 	
 	
+	@Test
+	public void testPlayerFactoryGetHuman() throws Exception
+	{
+		PlayerFactory playFact = new PlayerFactory();
+		Player p1 = playFact.getPlayer("Human");
+		assertTrue(p1 instanceof Human);		
+	}
 	
-
-//	Intelligence novice = new NoviceAI();
-//		String noviceChoice = novice.makeChoice();
-//		p1.chooseGameObj(noviceChoice);
 }
