@@ -2,6 +2,7 @@ package JunitTests.StateMachineTests;
 
 import static org.junit.Assert.*;
 
+<<<<<<< HEAD
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,24 +30,51 @@ public class TestStateManager {
 	public void testGetSingletonStateManager() 
 	{
 		//StateManager man = StateManager.getNewInstance();
+=======
+import org.junit.Test;
+
+import stateMachine.GameState;
+import stateMachine.MenuState;
+import stateMachine.PlayState;
+import stateMachine.StateManager;
+
+public class TestStateManager {
+
+	@Test
+	public void testGetSingletonStateManager() 
+	{
+		StateManager man = StateManager.getNewInstance();
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 		assertTrue(man instanceof StateManager);
 	}
 	
 	@Test
 	public void testSetAndGetCurrentGameState()
 	{
+<<<<<<< HEAD
 		//StateManager man = StateManager.getNewInstance();
 		SetUpState menuState = new SetUpState(man);
+=======
+		StateManager man = StateManager.getNewInstance();
+		MenuState menuState = new MenuState(man);
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 		man.setGameState(menuState);
 		GameState current = man.getGameState();		
 		assertTrue(current instanceof GameState);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 	
 	@Test
 	public void testStartStateManager()
 	{
+<<<<<<< HEAD
 		//StateManager man = StateManager.getNewInstance();
+=======
+		StateManager man = StateManager.getNewInstance();
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 		man.startGameManager();
 		GameState current = man.getGameState();		
 		assertTrue(current instanceof GameState);
@@ -55,7 +83,11 @@ public class TestStateManager {
 	@Test
 	public void testSwitchState()
 	{
+<<<<<<< HEAD
 		//StateManager man = StateManager.getNewInstance();
+=======
+		StateManager man = StateManager.getNewInstance();
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 		man.startGameManager();
 		PlayState play = new PlayState(man);
 		man.switchState(play);
@@ -63,6 +95,7 @@ public class TestStateManager {
 		assertTrue(current instanceof PlayState);
 	}
 	
+<<<<<<< HEAD
 	@Test
 	public void testUpdateCurrentSetUpStatetoPlayState()
 	{
@@ -99,5 +132,17 @@ public class TestStateManager {
 
 	}
 
+=======
+	
+	@Test
+	public void testUpdateCurrentMenuStatetoPlayState()
+	{
+		StateManager man = StateManager.getNewInstance();
+		man.startGameManager();
+		man.updateState();
+		assertTrue(man.getGameState() instanceof PlayState);
+	}
+
+>>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 	
 }
