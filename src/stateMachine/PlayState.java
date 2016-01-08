@@ -2,7 +2,6 @@ package stateMachine;
 
 public class PlayState implements GameState {
 
-<<<<<<< HEAD
 	
 	
 	private StateManager stateManager;
@@ -27,18 +26,6 @@ public class PlayState implements GameState {
 	public void initiateState() {
 
 		//call game screen and functions
-=======
-	public PlayState(StateManager stateManager) 
-	{
-		
-		
-	}
-
-	@Override
-	public void updateState() {
-		
-		
->>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 	}
 
 }

@@ -5,6 +5,7 @@ import GameObjs.GameObj;
 
 public abstract class Player {
 	
+	protected String name;
 	
 	public Intelligence intelLevel;
 	
@@ -17,5 +18,7 @@ public abstract class Player {
 
 	public abstract String intelChooseGameObj() throws Exception;
 
-	
+	public abstract void setName(String name);
+
+	public abstract String getName();	
 }

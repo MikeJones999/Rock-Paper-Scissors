@@ -8,10 +8,7 @@ import org.junit.Test;
 
 import PlayerObjs.Computer;
 import PlayerObjs.Human;
-<<<<<<< HEAD
 import PlayerObjs.NullPlayerObj;
-=======
->>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 import PlayerObjs.Player;
 import PlayerObjs.PlayerFactory;
 

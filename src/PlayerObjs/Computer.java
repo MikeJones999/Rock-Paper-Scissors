@@ -18,6 +18,24 @@ public class Computer extends Player {
 	{		
 		return intelLevel.makeChoice();
 	}
+
+
+
+	@Override
+	public void setName(String name) {
+		this.name = name; 
+	}
+
+
+
+	@Override
+	public String getName() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(Computer) ");
+		sb.append(this.name);
+		
+		return sb.toString();
+	}
 	
 	
 	

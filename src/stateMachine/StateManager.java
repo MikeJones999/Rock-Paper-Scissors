@@ -3,11 +3,7 @@ package stateMachine;
 
 public class StateManager {
 
-<<<<<<< HEAD
 	public static StateManager manager;
-=======
-	static StateManager manager;
->>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 	
 	private GameState currentState;	
 	
@@ -40,11 +36,7 @@ public class StateManager {
 
 		if (currentState == null)
 		{
-<<<<<<< HEAD
 			currentState = new SetUpState(this);
-=======
-			currentState = new MenuState(this);
->>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 		}
 	}
 	
@@ -61,7 +53,6 @@ public class StateManager {
 		currentState = newState;
 	}
 
-<<<<<<< HEAD
 	public void activateState() {
 		
 		if(currentState != null)
@@ -71,8 +62,6 @@ public class StateManager {
 		
 	}
 
-=======
->>>>>>> 932b832c4e054b4aebb7c5aca0f7b4ee066bfdf0
 
 
 

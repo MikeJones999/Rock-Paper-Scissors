@@ -16,4 +16,16 @@ public class NullPlayerObj extends Player {
 		return null;
 	}
 
+	@Override
+	public void setName(String name) {
+		//do nothing
+		
+	}
+
+	@Override
+	public String getName() {
+	
+		return "Not a specified player object";
+	}
+
 }

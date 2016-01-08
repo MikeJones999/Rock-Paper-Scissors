@@ -18,6 +18,19 @@ public class Human extends Player {
 		
 		//change to request move?
 	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	@Override
+	public String getName() {
+		return name;
+	}
+	
 	
 	
 	
