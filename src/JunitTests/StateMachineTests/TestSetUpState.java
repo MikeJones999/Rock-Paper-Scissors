@@ -5,8 +5,12 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import consoleUI.GameSettings;
+import consoleUI.SettingsMenu;
+import gameManager.GameEngine;
 import stateMachine.SetUpState;
 import stateMachine.PlayState;
 import stateMachine.StateManager;
@@ -39,12 +43,27 @@ public class TestSetUpState {
 		assertTrue(man.getGameState() instanceof PlayState);		
 	}
 	
+	@Test
+	public void testGameSettingCreation()
+	{
+		SetUpState menu = new SetUpState(man);
+		assertTrue(menu.getGameSettings() instanceof GameSettings);
+	}
+	
+	@Ignore
+	@Test
+	public void testInitiateStateCreateGameSettings()
+	{
+		SetUpState menu = new SetUpState(man);
+		SettingsMenu settings = new SettingsMenu(menu.getGameSettings());			
+		assertEquals(menu.getGameSettings().getGameRounds(), 0);		
+	}
 	
 	@Test
-	public void testInitiateState()
+	public void testInitiateStateSettingsAutomaticallyConfigured()
 	{
-				
-		
+		SetUpState menu = new SetUpState(man);
+		assertEquals(menu.getGameSettings().getGameRounds(), 0);
 	}
 	
 	@After

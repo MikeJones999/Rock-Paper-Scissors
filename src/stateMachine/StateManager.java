@@ -7,10 +7,7 @@ public class StateManager {
 	
 	private GameState currentState;	
 	
-	private StateManager()
-	{
-		
-	}	
+	private StateManager(){}	
 
 	public static StateManager getNewInstance() 
 	{
@@ -53,6 +50,7 @@ public class StateManager {
 		currentState = newState;
 	}
 
+	@Deprecated
 	public void activateState() {
 		
 		if(currentState != null)

@@ -8,7 +8,8 @@ public class PlayState implements GameState {
 
 	public PlayState(StateManager stateManager) 
 	{
-		this.stateManager = stateManager;		
+		this.stateManager = stateManager;	
+		initiateState();
 	}
 
 	@Override

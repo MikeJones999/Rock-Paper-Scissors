@@ -1,14 +1,14 @@
 package JunitTests.StateMachineTests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import stateMachine.PlayState;
-import stateMachine.StateManager;
 import stateMachine.ResultState;
+import stateMachine.StateManager;
 
 public class TestPlayState {
 

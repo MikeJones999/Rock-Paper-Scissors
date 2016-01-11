@@ -90,6 +90,13 @@ public class TestStateManager {
 		man.activateState();
 	}
 	
+	@Test
+	public void testGameSettingsCreation()
+	{
+	  
+	}
+	
+	
 	@After
 	public void tearDown()
 	{
