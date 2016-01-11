@@ -2,6 +2,8 @@ package JunitTests.StateMachineTests;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +35,7 @@ public class TestStateManager {
 	}
 	
 	@Test
-	public void testSetAndGetCurrentGameState()
+	public void testSetAndGetCurrentGameState() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
 		SetUpState menuState = new SetUpState(man);
@@ -44,7 +46,7 @@ public class TestStateManager {
 
 	
 	@Test
-	public void testStartStateManager()
+	public void testStartStateManager() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
 		man.startGameManager();
@@ -53,7 +55,7 @@ public class TestStateManager {
 	}
 	
 	@Test
-	public void testSwitchState()
+	public void testSwitchState() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
 		man.startGameManager();
@@ -64,7 +66,7 @@ public class TestStateManager {
 	}
 	
 	@Test
-	public void testUpdateCurrentSetUpStatetoPlayState()
+	public void testUpdateCurrentSetUpStatetoPlayState() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
 		man.startGameManager();
@@ -74,7 +76,7 @@ public class TestStateManager {
 	}
 
 	@Test
-	public void testUpdateCurrentPlayStatetoWonState()
+	public void testUpdateCurrentPlayStatetoWonState() throws IOException
 	{
 		man.startGameManager();
 		man.updateState();
@@ -84,7 +86,7 @@ public class TestStateManager {
 	}
 
 	@Test
-	public void testActivateCurrentState()
+	public void testActivateCurrentState() throws IOException
 	{
 		man.startGameManager();
 		man.activateState();

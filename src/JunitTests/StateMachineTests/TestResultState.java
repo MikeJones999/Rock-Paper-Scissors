@@ -2,6 +2,8 @@ package JunitTests.StateMachineTests;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +31,7 @@ public class TestResultState {
 	}
 	
 	@Test
-	public void testResultStateUpdateOfState()
+	public void testResultStateUpdateOfState() throws IOException
 	{
 		ResultState result = new ResultState(man);
 		result.updateState();

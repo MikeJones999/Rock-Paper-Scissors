@@ -1,5 +1,7 @@
 package stateMachine;
 
+import java.io.IOException;
+
 public class ResultState implements GameState {
 
 	private StateManager stateManager;
@@ -10,7 +12,7 @@ public class ResultState implements GameState {
 	}
 
 	@Override
-	public void updateState() 
+	public void updateState() throws IOException 
 	{
 			stateManager.switchState(new SetUpState(stateManager));	
 	}

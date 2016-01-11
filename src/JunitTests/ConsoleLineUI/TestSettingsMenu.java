@@ -60,6 +60,7 @@ public class TestSettingsMenu {
 		assertEquals(menu.getComplete(), true);
 	}
 	
+    @Ignore
 	@Test
 	public void testParseErrorCatchFacility()
 	{
@@ -69,6 +70,7 @@ public class TestSettingsMenu {
 		assertEquals(menu.parseErrorCatch(str), 1);
 	}
 	
+	@Ignore
 	@Test
 	public void testParseErrorCatchFacilityStringError()
 	{
@@ -112,6 +114,7 @@ public class TestSettingsMenu {
 		assertTrue(gameSettings.getPlayerTwo() instanceof Human);
 	}
 	
+	@Ignore
 	@Test
 	public void testAddNewPlayerNames()
 	{
@@ -123,6 +126,42 @@ public class TestSettingsMenu {
 		
 		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
 		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
+	}
+	
+	@Ignore
+	@Test
+	public void testAddNewPlayerNamesViaInput() throws IOException
+	{
+		GameSettings gameSettings = new GameSettings();
+		SettingsMenu menu = new SettingsMenu(gameSettings);
+		menu.createPlayers("Human", "Computer");
+		menu.createPlayerNamesMenu();
+		//Console input enter Dave and Jarvis
+		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
+		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
+	}
+	
+	@Ignore
+	@Test
+	public void testConstructionOfSettingMenuToCreateTwoPlayers() throws IOException
+	{
+		GameSettings gameSettings = new GameSettings();
+		SettingsMenu menu = new SettingsMenu(gameSettings);		
+		//Console input enter Dave and Jarvis - Human and Computer Players
+		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
+		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");		
+		
+	}
+	
+	@Test
+	public void testConstructionOfSettingMenuToPopulateGameSetting() throws IOException
+	{
+		GameSettings gameSettings = new GameSettings();
+		SettingsMenu menu = new SettingsMenu(gameSettings);		
+		//Console input enter Dave and Jarvis - Human and Computer Players
+		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
+		assertEquals(gameSettings.getGameRounds(), 5);
+		
 	}
 	
 }

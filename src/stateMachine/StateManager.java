@@ -1,5 +1,6 @@
 package stateMachine;
 
+import java.io.IOException;
 
 public class StateManager {
 
@@ -29,7 +30,7 @@ public class StateManager {
 		return currentState;
 	}
 
-	public void startGameManager() {
+	public void startGameManager() throws IOException {
 
 		if (currentState == null)
 		{
@@ -37,7 +38,7 @@ public class StateManager {
 		}
 	}
 	
-	public void updateState()
+	public void updateState() throws IOException
 	{
 		if(currentState != null)
 		{
@@ -51,7 +52,7 @@ public class StateManager {
 	}
 
 	@Deprecated
-	public void activateState() {
+	public void activateState() throws IOException {
 		
 		if(currentState != null)
 		{

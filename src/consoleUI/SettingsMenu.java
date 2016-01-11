@@ -11,18 +11,23 @@ public class SettingsMenu {
 
 	private GameSettings gameSettings;
 	private boolean menuStatusComplete = false;
-	private boolean playersCreated = false;
-	private boolean playerNamesCompleted = false;
 	
-	public SettingsMenu(GameSettings gameSettings) {
+	public SettingsMenu(GameSettings gameSettings){
 		
 		this.gameSettings = gameSettings;	
-		setDefaultGameRounds();
+		
+		try {
+				menuController();
+			} 
+		catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
 	}
 	
-	public void setDefaultGameRounds()
+	public void setGameRounds(int n)
 	{
-		gameSettings.setGameRounds(3);
+		gameSettings.setGameRounds(n);
 	}
 
 	public boolean getComplete() {
@@ -45,17 +50,21 @@ public class SettingsMenu {
 			 System.out.println("That is not an option, please try again");
 			 };
 		}while(response == 0 ||response > 2);
-			
+		
+		
 		switch(response)
 		{
-		case(1):  newGameSelected(); break;
-		case(2):  break;
+			case(1):  newGameSelected(); break;
+			case(2):  break;
 		}
-		
+
+		obtainNumberOfGameRounds();
 		setMenuStatusToComplete();		
 	}
 		
 	
+	
+
 	private int openingOptions() throws IOException
 	{
 		System.out.println("Mike Jones Rock-Paper-Scissors Game");
@@ -71,8 +80,8 @@ public class SettingsMenu {
 	}
 		
 
-	public void newGameSelected() throws IOException {
-		
+	public void newGameSelected() throws IOException 
+	{		
 		System.out.println("Setting Up Game...");
 		
 		int response = 3;
@@ -92,7 +101,9 @@ public class SettingsMenu {
 			case(2): createPlayers("Human", "Human"); break;
 		}
 		
-		playersCreated = true;
+		createPlayerNamesMenu();
+	
+		
 	}
 	
 
@@ -105,7 +116,10 @@ public class SettingsMenu {
 		return response;
 	}
 	
-	public void createPlayers(String player1, String player2) {
+	
+	
+	
+	private void createPlayers(String player1, String player2) {
 		PlayerFactory playFact = new PlayerFactory();
 		
 		Player p1 = playFact.getPlayer(player1);
@@ -115,7 +129,7 @@ public class SettingsMenu {
 	}
 
 
-	public void addPlayerNames(String p1Name, String p2Name) {
+	private void addPlayerNames(String p1Name, String p2Name) {
 		
 		gameSettings.getPlayerOne().setName(p1Name);
 		gameSettings.getPlayerTwo().setName(p2Name);
@@ -134,5 +148,48 @@ public class SettingsMenu {
 			System.out.println("That is not an option, please try again");
 		}
 		return response;
+	}
+
+	private void createPlayerNamesMenu() throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Please Enter a name for Player One...");			
+		String player1 = br.readLine();
+		System.out.println("Please Enter a name for Player Two...");			
+		String player2 = br.readLine();
+		addPlayerNames(player1,player2);		
+	}
+	
+	private void obtainNumberOfGameRounds() throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		boolean complete = false;
+		
+		do
+		{
+		System.out.println("Please Enter the number of rounds to play from 3 upwards. Default set to 3...");			
+		String str = br.readLine();
+		int response = parseErrorCatch(str);
+		complete = verifyRounds(response);
+		}while(!complete);	
+	}
+
+	//must be an odd number
+	private boolean verifyRounds(int response) {
+		
+		if(response == 0 || response == 1) {
+			System.out.println("That number is not applicable for this game, please chose another number");
+			return false;
+		}
+		else
+		{
+			if(response % 2 == 0)
+			{
+				System.out.println("That number is not an odd number, please chose another number");
+				return false;
+			}
+		}
+		setGameRounds(response);
+		return true;
 	}
 }

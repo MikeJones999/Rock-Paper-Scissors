@@ -1,5 +1,7 @@
 package gameManager;
 
+import java.io.IOException;
+
 import stateMachine.GameState;
 import stateMachine.StateManager;
 
@@ -7,7 +9,7 @@ public class GameEngine {
 
 	private StateManager stateManager;
 	
-	public GameEngine(StateManager man) 
+	public GameEngine(StateManager man) throws IOException 
 	{
 		this.stateManager = man;
 		startStateManager();
@@ -21,7 +23,7 @@ public class GameEngine {
 	}	
 	
 
-	private void startStateManager() 
+	private void startStateManager() throws IOException 
 	{
 		stateManager.startGameManager();
 		

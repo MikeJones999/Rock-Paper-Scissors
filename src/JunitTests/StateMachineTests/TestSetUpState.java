@@ -3,6 +3,8 @@ package JunitTests.StateMachineTests;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -27,7 +29,7 @@ public class TestSetUpState {
 	
 
 	@Test
-	public void testSetUpStateConstructor() 
+	public void testSetUpStateConstructor() throws IOException 
 	{		
 		SetUpState menu = new SetUpState(man);
 		assertTrue(menu.getStateManager() instanceof StateManager);
@@ -35,7 +37,7 @@ public class TestSetUpState {
 	
 	
 	@Test
-	public void testSetUpStateUpdateofState()
+	public void testSetUpStateUpdateofState() throws IOException
 	{
 		SetUpState menu = new SetUpState(man);
 		menu.updateState();
@@ -44,7 +46,7 @@ public class TestSetUpState {
 	}
 	
 	@Test
-	public void testGameSettingCreation()
+	public void testGameSettingCreation() throws IOException
 	{
 		SetUpState menu = new SetUpState(man);
 		assertTrue(menu.getGameSettings() instanceof GameSettings);
@@ -52,7 +54,7 @@ public class TestSetUpState {
 	
 	@Ignore
 	@Test
-	public void testInitiateStateCreateGameSettings()
+	public void testInitiateStateCreateGameSettings() throws IOException
 	{
 		SetUpState menu = new SetUpState(man);
 		SettingsMenu settings = new SettingsMenu(menu.getGameSettings());			
@@ -60,7 +62,7 @@ public class TestSetUpState {
 	}
 	
 	@Test
-	public void testInitiateStateSettingsAutomaticallyConfigured()
+	public void testInitiateStateSettingsAutomaticallyConfigured() throws IOException
 	{
 		SetUpState menu = new SetUpState(man);
 		assertEquals(menu.getGameSettings().getGameRounds(), 0);

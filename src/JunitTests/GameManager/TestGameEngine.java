@@ -2,6 +2,8 @@ package JunitTests.GameManager;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +32,7 @@ public class TestGameEngine {
 	}
 
 	@Test
-	public void testGameEngineConstructor() 
+	public void testGameEngineConstructor() throws IOException 
 	{
 		GameEngine engine = new GameEngine(man);
 		//engine.setStateManager(man);
@@ -38,14 +40,14 @@ public class TestGameEngine {
 	}
 	
 	@Test
-	public void testGameEngineStateManagerSetUpState()
+	public void testGameEngineStateManagerSetUpState() throws IOException
 	{
 		GameEngine engine = new GameEngine(man);
 		assertTrue(engine.getStateManager().getGameState() instanceof SetUpState);		
 	}
 	
 	@Test
-	public void testGameEngineReturnGameStateDirect()
+	public void testGameEngineReturnGameStateDirect() throws IOException
 	{
 		GameEngine engine = new GameEngine(man);
 		GameState state = engine.getCurrentGameState();
