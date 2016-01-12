@@ -15,14 +15,6 @@ public class SettingsMenu {
 	public SettingsMenu(GameSettings gameSettings){
 		
 		this.gameSettings = gameSettings;	
-		
-		try {
-				menuController();
-			} 
-		catch (IOException e) 
-			{
-				e.printStackTrace();
-			}
 	}
 	
 	public void setGameRounds(int n)
@@ -101,9 +93,7 @@ public class SettingsMenu {
 			case(2): createPlayers("Human", "Human"); break;
 		}
 		
-		createPlayerNamesMenu();
-	
-		
+		createPlayerNamesMenu();	
 	}
 	
 
@@ -167,7 +157,7 @@ public class SettingsMenu {
 		
 		do
 		{
-		System.out.println("Please Enter the number of rounds to play from 3 upwards. Default set to 3...");			
+		System.out.println("Please Enter the number of rounds to play from 3 upwards...");			
 		String str = br.readLine();
 		int response = parseErrorCatch(str);
 		complete = verifyRounds(response);
@@ -178,14 +168,14 @@ public class SettingsMenu {
 	private boolean verifyRounds(int response) {
 		
 		if(response == 0 || response == 1) {
-			System.out.println("That number is not applicable for this game, please chose another number");
+			System.out.println("That number is not applicable for this game.");
 			return false;
 		}
 		else
 		{
 			if(response % 2 == 0)
 			{
-				System.out.println("That number is not an odd number, please chose another number");
+				System.out.println("That number is not an odd number.");
 				return false;
 			}
 		}

@@ -38,7 +38,7 @@ public class TestSettingsMenu {
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);
-		menu.setDefaultGameRounds();
+		menu.setGameRounds(3);
 		assertEquals(gameSettings.getGameRounds(), 3);
 	}
 	@Ignore
@@ -80,17 +80,17 @@ public class TestSettingsMenu {
 		assertEquals(menu.parseErrorCatch(str), 0);
 	}
 	
-	@Ignore
-	@Test
-	public void testCreateNewPlayerMethod()
-	{
-		GameSettings gameSettings = new GameSettings();
-		SettingsMenu menu = new SettingsMenu(gameSettings);
-		//createPlayers was public but through encapsulation has been made private
-		menu.createPlayers("Human", "Computer");
-		assertTrue(gameSettings.getPlayerOne() instanceof Human);
-		assertTrue(gameSettings.getPlayerTwo() instanceof Computer);		
-	}
+//	@Ignore
+//	@Test
+//	public void testCreateNewPlayerMethod()
+//	{
+//		GameSettings gameSettings = new GameSettings();
+//		SettingsMenu menu = new SettingsMenu(gameSettings);
+//		//createPlayers was public but through encapsulation has been made private
+//		menu.createPlayers("Human", "Computer");
+//		assertTrue(gameSettings.getPlayerOne() instanceof Human);
+//		assertTrue(gameSettings.getPlayerTwo() instanceof Computer);		
+//	}
 	
 	@Ignore
 	@Test
@@ -114,32 +114,32 @@ public class TestSettingsMenu {
 		assertTrue(gameSettings.getPlayerTwo() instanceof Human);
 	}
 	
-	@Ignore
-	@Test
-	public void testAddNewPlayerNames()
-	{
-		GameSettings gameSettings = new GameSettings();
-		SettingsMenu menu = new SettingsMenu(gameSettings);
-		//createPlayers was public but through encapsulation has been made private
-		menu.createPlayers("Human", "Computer");
-		menu.addPlayerNames("Dave", "Jarvis");
-		
-		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
-		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
-	}
+//	@Ignore
+//	@Test
+//	public void testAddNewPlayerNames()
+//	{
+//		GameSettings gameSettings = new GameSettings();
+//		SettingsMenu menu = new SettingsMenu(gameSettings);
+//		//createPlayers was public but through encapsulation has been made private
+//		menu.createPlayers("Human", "Computer");
+//		menu.addPlayerNames("Dave", "Jarvis");
+//		
+//		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
+//		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
+//	}
 	
-	@Ignore
-	@Test
-	public void testAddNewPlayerNamesViaInput() throws IOException
-	{
-		GameSettings gameSettings = new GameSettings();
-		SettingsMenu menu = new SettingsMenu(gameSettings);
-		menu.createPlayers("Human", "Computer");
-		menu.createPlayerNamesMenu();
-		//Console input enter Dave and Jarvis
-		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
-		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
-	}
+//	@Ignore
+//	@Test
+//	public void testAddNewPlayerNamesViaInput() throws IOException
+//	{
+//		GameSettings gameSettings = new GameSettings();
+//		SettingsMenu menu = new SettingsMenu(gameSettings);
+//		menu.createPlayers("Human", "Computer");
+//		menu.createPlayerNamesMenu();
+//		//Console input enter Dave and Jarvis
+//		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
+//		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
+//	}
 	
 	@Ignore
 	@Test
@@ -147,6 +147,7 @@ public class TestSettingsMenu {
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);		
+		menu.menuController();
 		//Console input enter Dave and Jarvis - Human and Computer Players
 		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
 		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");		
@@ -158,6 +159,7 @@ public class TestSettingsMenu {
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);		
+		menu.menuController();
 		//Console input enter Dave and Jarvis - Human and Computer Players
 		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
 		assertEquals(gameSettings.getGameRounds(), 5);

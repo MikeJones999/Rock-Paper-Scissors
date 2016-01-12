@@ -1,14 +1,23 @@
 package stateMachine;
 
+import consoleUI.GameSettings;
+
 public class PlayState implements GameState {
 
-	
-	
+		
 	private StateManager stateManager;
+	private GameSettings gameSettings;
 
 	public PlayState(StateManager stateManager) 
 	{
 		this.stateManager = stateManager;	
+		initiateState();
+	}
+
+	public PlayState(StateManager stateManager, GameSettings gameSettings)
+	{
+		this.stateManager = stateManager;
+		this.gameSettings = gameSettings;
 		initiateState();
 	}
 
@@ -27,6 +36,13 @@ public class PlayState implements GameState {
 	public void initiateState() {
 
 		//call game screen and functions
+		
+		//can pass players through, and rounds. rather than gamesettings
+	}
+
+	public GameSettings getGameSettings() 
+	{
+		return gameSettings;
 	}
 
 }

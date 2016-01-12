@@ -33,8 +33,8 @@ public class SetUpState implements GameState {
 		
 		gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);
-	
-		//oncompletion - updateState();
+		menu.menuController();
+		updateState();
 	}
 
 	public GameSettings getGameSettings() {
