@@ -1,6 +1,7 @@
 package stateMachine;
 
 import consoleUI.GameSettings;
+import consoleUI.PlayGameUI;
 
 public class PlayState implements GameState {
 
@@ -38,6 +39,8 @@ public class PlayState implements GameState {
 		//call game screen and functions
 		
 		//can pass players through, and rounds. rather than gamesettings
+		//PlayGameUI playManager = new PlayGameUI(gameSettings);
+		//playManager.getResults();
 	}
 
 	public GameSettings getGameSettings() 
