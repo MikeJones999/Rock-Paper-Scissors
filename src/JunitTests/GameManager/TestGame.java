@@ -28,7 +28,8 @@ public class TestGame {
 		assertEquals(winner, null);	
 	}
 	
-	public void testSetPlayerWinner()
+	@Test
+	public void testSetAndGetPlayerWinner()
 	{
 		Game game = new Game();
 		PlayerFactory playFact = new PlayerFactory();			
@@ -37,4 +38,61 @@ public class TestGame {
 		assertEquals(game.getWinner(), p1);
 	}
 
+	@Test
+	public void testSetAndGetPlayerLooser()
+	{
+		Game game = new Game();
+		PlayerFactory playFact = new PlayerFactory();
+		Player looser = playFact.getPlayer("Human");
+		game.setLooser(looser);
+		assertEquals(game.getLooser(), looser);
+	}
+	
+	@Test
+	public void testSetAndGetWinnerWinCount()
+	{
+		Game game = new Game();
+		game.setWinnerWin(2);
+		assertEquals(game.getWinnerWins(), 2);
+	}
+	
+	@Test
+	public void testSetAndGetTotalRoundsPerGame()
+	{
+		Game game = new Game();
+		game.setRounds(3);
+		assertEquals(game.getRounds(), 3);
+	}
+	
+	@Test
+	public void testReturnNumberOfLosesByWinner()
+	{
+		Game game = new Game();
+		game.setRounds(3);
+		game.setWinnerWin(2);
+		game.setLooserWins(0);
+		assertEquals(game.getWinnerLoses(), 0);
+	}
+	
+	
+	@Test
+	public void testReturnNumberOfdraws()
+	{
+		Game game = new Game();
+		game.setRounds(3);
+		game.setWinnerWin(2);
+		game.setLooserWins(0);
+		assertEquals(game.getNumberOfDraws(), 1);
+		
+	}
+	
+	@Test
+	public void testReturnNumberOfWinsByLoser()
+	{
+		Game game = new Game();
+		game.setRounds(3);
+		game.setWinnerWin(1);
+		assertEquals(game.getLooserWins(), 0);
+	}
+	
 }

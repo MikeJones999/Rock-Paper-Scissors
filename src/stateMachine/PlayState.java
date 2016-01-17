@@ -1,13 +1,17 @@
 package stateMachine;
 
+import java.util.List;
+
 import consoleUI.GameSettings;
 import consoleUI.PlayGameUI;
+import gameManager.Game;
 
 public class PlayState implements GameState {
 
 		
 	private StateManager stateManager;
 	private GameSettings gameSettings;
+	private List<Game> results;
 
 	public PlayState(StateManager stateManager) 
 	{
@@ -25,7 +29,7 @@ public class PlayState implements GameState {
 	@Override
 	public void updateState() 
 	{
-		stateManager.switchState(new ResultState(stateManager));		
+		stateManager.switchState(new ResultState(stateManager, results));		
 	}
 
 	public StateManager getStateManager() {
@@ -35,12 +39,17 @@ public class PlayState implements GameState {
 
 	@Override
 	public void initiateState() {
-
 		//call game screen and functions
 		
 		//can pass players through, and rounds. rather than gamesettings
-		//PlayGameUI playManager = new PlayGameUI(gameSettings);
-		//playManager.getResults();
+		PlayGameUI play = new PlayGameUI(gameSettings);
+		boolean complete = play.playGameController();
+		if (complete){this.results = play.getGameResults();}
+		updateState();
+	}
+
+	public List<Game> getResults() {
+		return results;
 	}
 
 	public GameSettings getGameSettings() 

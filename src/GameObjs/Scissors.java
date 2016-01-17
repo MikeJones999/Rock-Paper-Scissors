@@ -17,4 +17,11 @@ public class Scissors extends GameObj {
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		return "Scissors";
+	}
+
+
+
 }

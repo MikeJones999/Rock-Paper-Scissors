@@ -13,7 +13,7 @@ public class GameSettings
 		this.gameRounds = rounds;
 	}
 
-	public Object getGameRounds() {
+	public int getGameRounds() {
 		return gameRounds;
 	}
 

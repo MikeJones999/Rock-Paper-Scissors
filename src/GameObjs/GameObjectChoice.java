@@ -13,4 +13,9 @@ public enum GameObjectChoice {
 		return gameObjectArray[ran.nextInt(gameObjectArray.length)].toString();
 	}
 	
+	public static GameObjectChoice[] getAllGameObjects()
+	{
+		return GameObjectChoice.values();	
+	}
+	
 }

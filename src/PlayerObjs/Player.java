@@ -14,9 +14,7 @@ public abstract class Player {
 		this.intelLevel = intelLevel;
 	}
 	
-	public abstract GameObj chooseGameObj(String gameObj) throws Exception;
-
-	public abstract String intelChooseGameObj() throws Exception;
+	public abstract GameObj chooseGameObj(String gameObj);
 
 	public abstract void setName(String name);
 

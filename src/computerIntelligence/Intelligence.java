@@ -1,11 +1,11 @@
 package computerIntelligence;
 
 
-public abstract class Intelligence {
+public interface Intelligence {
 
 	
 	
-	public abstract String makeChoice();
+	public String makeChoice();
 
 
 

@@ -2,20 +2,28 @@ package PlayerObjs;
 
 
 import GameObjs.GameObj;
+import computerIntelligence.Intelligence;
+import computerIntelligence.NoviceAI;
+
 
 public class Computer extends Player {
 
 	
-	public GameObj chooseGameObj(String gameObj) throws Exception {
+	
+	public GameObj chooseGameObj(String gameObj) {
 		
-		return GameObj.newGameObj(gameObj);
+		String obj = intelChooseGameObj();
+		return GameObj.newGameObj(obj);
 	}
 	
 
 
-	@Override
-	public String intelChooseGameObj() throws Exception
+	public String intelChooseGameObj()
 	{		
+		if(intelLevel == null)
+		{
+			intelLevel = new NoviceAI();
+		}
 		return intelLevel.makeChoice();
 	}
 
@@ -38,5 +46,8 @@ public class Computer extends Player {
 	}
 	
 	
-	
+	public void setIntelligenceLevel(Intelligence intelLevel)
+	{
+		this.intelLevel = intelLevel;
+	}
 }

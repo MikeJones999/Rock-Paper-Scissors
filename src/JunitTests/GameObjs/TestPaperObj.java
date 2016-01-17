@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import GameObjs.GameObj;
+import GameObjs.GameObjectChoice;
+import GameObjs.GameObjectRules;
 import GameObjs.Paper;
 import GameObjs.Rock;
 import GameObjs.Scissors;
@@ -44,4 +47,16 @@ public class TestPaperObj {
 	}
 	
 
+	@Test
+	public void testSingleBeatsMethodPaperVersusScissors()
+	{
+		
+		GameObj paper = GameObj.newGameObj("Paper");
+		GameObj scissors = GameObj.newGameObj("Scissors");;
+		
+		assertTrue(paper.beats(scissors) == -1);
+		
+	}
+	
+	
 }

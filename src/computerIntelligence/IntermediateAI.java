@@ -1,7 +1,7 @@
 package computerIntelligence;
 
 
-public class IntermediateAI extends Intelligence {
+public class IntermediateAI implements Intelligence {
 
 	@Override
 	public String makeChoice()

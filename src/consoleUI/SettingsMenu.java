@@ -1,8 +1,7 @@
 package consoleUI;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.util.Scanner;
 
 import PlayerObjs.Player;
 import PlayerObjs.PlayerFactory;
@@ -32,7 +31,7 @@ public class SettingsMenu {
 		menuStatusComplete = true;
 	}
 
-	public void menuController() throws IOException 
+	public void menuController()  
 	{	
 		int response = 0;
 		do
@@ -57,7 +56,7 @@ public class SettingsMenu {
 	
 	
 
-	private int openingOptions() throws IOException
+	private int openingOptions()
 	{
 		System.out.println("Mike Jones Rock-Paper-Scissors Game");
 		System.out.println("-----------------------------------");
@@ -65,14 +64,14 @@ public class SettingsMenu {
 		System.out.println("1) New Game");
 		System.out.println("2) Exit");	
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str = br.readLine();
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
 		int response = parseErrorCatch(str);
 		return response;
 	}
 		
 
-	public void newGameSelected() throws IOException 
+	public void newGameSelected()
 	{		
 		System.out.println("Setting Up Game...");
 		
@@ -97,11 +96,11 @@ public class SettingsMenu {
 	}
 	
 
-	private int obtainNumberOfHumanPlayers() throws IOException
+	private int obtainNumberOfHumanPlayers()
 	{
-		System.out.println("How many Human players are there? ");	
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str = br.readLine();
+		System.out.println("How many Human players are there? (Max 2)");	
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
 		int response = parseErrorCatch(str);
 		return response;
 	}
@@ -140,25 +139,25 @@ public class SettingsMenu {
 		return response;
 	}
 
-	private void createPlayerNamesMenu() throws IOException {
+	private void createPlayerNamesMenu() {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Scanner scan = new Scanner(System.in);
 		System.out.println("Please Enter a name for Player One...");			
-		String player1 = br.readLine();
+		String player1 = scan.nextLine();
 		System.out.println("Please Enter a name for Player Two...");			
-		String player2 = br.readLine();
+		String player2 = scan.nextLine();
 		addPlayerNames(player1,player2);		
 	}
 	
-	private void obtainNumberOfGameRounds() throws IOException {
+	private void obtainNumberOfGameRounds() {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Scanner scan = new Scanner(System.in);
 		boolean complete = false;
 		
 		do
 		{
 		System.out.println("Please Enter the number of rounds to play from 3 upwards...");			
-		String str = br.readLine();
+		String str = scan.nextLine();
 		int response = parseErrorCatch(str);
 		complete = verifyRounds(response);
 		}while(!complete);	

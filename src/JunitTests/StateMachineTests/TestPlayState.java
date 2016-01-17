@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import PlayerObjs.Player;
+import PlayerObjs.PlayerFactory;
 import consoleUI.GameSettings;
 import stateMachine.PlayState;
 import stateMachine.ResultState;
@@ -22,6 +24,8 @@ public class TestPlayState {
 	    man = StateManager.getNewInstance();
 	}
 	
+	
+	@Ignore
 	@Test
 	public void testPlayStateConstructor() 
 	{
@@ -39,7 +43,7 @@ public class TestPlayState {
 		assertTrue(man.getGameState() instanceof ResultState);		
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testGetGameSettingsAndUpdatedConstructor()
 	{
@@ -48,11 +52,25 @@ public class TestPlayState {
 		assertEquals(playState.getGameSettings(), gameSettings);	
 	}
 	
-	@Ignore
 	@Test
-	public void testInitiateState()
+	public void testConstructorCallToInitiateStateAndChangeToResultState()
 	{
+		GameSettings gameSettings = new GameSettings();
+		gameSettings.setGameRounds(3);
+		PlayerFactory playFact = new PlayerFactory();
+		Player player1 = playFact.getPlayer("Human");
+		player1.setName("Jarvis");
+		Player player2 = playFact.getPlayer("Computer");
+		player2.setName("AL");	
+		gameSettings.setPlayerOne(player1);
+		gameSettings.setPlayerTwo(player2);		
 		
+		
+		PlayState playState = new PlayState(man, gameSettings);
+		//playState.initiateState();
+		//play Two games
+		assertEquals(playState.getResults().size(), 2);
+		assertTrue(man.getGameState() instanceof ResultState);
 	}
 	
 	@After

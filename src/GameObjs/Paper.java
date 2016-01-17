@@ -18,6 +18,12 @@ public class Paper extends GameObj {
 		return 0;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Paper";
+	}
+
+
+
 	
 }

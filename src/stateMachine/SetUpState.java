@@ -1,7 +1,5 @@
 package stateMachine;
 
-import java.io.IOException;
-
 import consoleUI.GameSettings;
 import consoleUI.SettingsMenu;
 
@@ -11,7 +9,7 @@ public class SetUpState implements GameState {
 	private GameSettings gameSettings;
 
 	
-	public SetUpState(StateManager man) throws IOException 
+	public SetUpState(StateManager man)
 	{		
 		this.stateManager = man;
 		initiateState();
@@ -25,11 +23,11 @@ public class SetUpState implements GameState {
 	@Override
 	public void updateState() 
 	{		
-		stateManager.switchState(new PlayState(stateManager));	
+		stateManager.switchState(new PlayState(stateManager, gameSettings));	
 	}
 
 	@Override
-	public void initiateState() throws IOException {
+	public void initiateState() {
 		
 		gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);

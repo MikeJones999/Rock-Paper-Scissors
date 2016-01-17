@@ -14,14 +14,19 @@ public abstract class GameObj {
 
 	public abstract int beats(Scissors paper);
 	
+	public int beats(GameObj obj){	
+		
+		GameObjectChoice[] gameObjArr = GameObjectChoice.getAllGameObjects();
+		GameObjectRules rules = new GameObjectRules(gameObjArr);
+		return rules.caluclateWin(this, obj);
+		
+	};
 	
+	public abstract String toString();
 	
-	
-	
-	public static GameObj newGameObj(String gameObjName) throws Exception 
-	{
+	public static GameObj newGameObj(String gameObjName)
+	{		
 		//Need to address the inconsistent capitalisation of each game object
-		System.out.println("gameObj: " + gameObjName);
 		StringBuilder str = new StringBuilder();
 		str.append("GameObjs.");
 		str.append(gameObjName);
@@ -39,10 +44,14 @@ public abstract class GameObj {
 			}		
 			catch(Exception e)
 			{
-				throw new Exception("Unknown Game Object : " + e );
+				System.out.println("That is not a designated Game Object, please choose again...");
+				return new NullObj();
+				//throw new Exception("Unknown Game Object : " + e );
 			}
 		
-		throw new Exception("Unknown Game Object");
+		System.out.println("That is not a designated Game Object, please choose again...");
+		return new NullObj();
+		//throw new Exception("Unknown Game Object");
 	}
 
 }

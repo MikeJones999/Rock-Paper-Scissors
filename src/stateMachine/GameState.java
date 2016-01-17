@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public interface GameState {
 
-	public void updateState() throws IOException;
+	public void updateState();
 
-	public void initiateState() throws IOException;
+	public void initiateState();
 	
 	
 }

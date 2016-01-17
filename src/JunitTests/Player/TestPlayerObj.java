@@ -30,18 +30,6 @@ public class TestPlayerObj {
 	
 	
 	@Test
-	public void testSettingPlayerIntelligence() throws Exception
-	{
-		Player p1 = new Computer();
-		Intelligence novice = new NoviceAI();
-		p1.setIntelLevel(novice);
-		
-		String result = p1.intelChooseGameObj();
-		
-		assertTrue(result.equals("Rock") || result.equals("Paper") || result.equals("Scissors"));
-	}
-	
-	@Test
 	public void testPlayerReturnHumanName()
 	{
 		Player p1 = new Human();

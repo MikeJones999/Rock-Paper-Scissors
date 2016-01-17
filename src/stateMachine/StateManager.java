@@ -30,7 +30,7 @@ public class StateManager {
 		return currentState;
 	}
 
-	public void startGameManager() throws IOException {
+	public void startGameManager() {
 
 		if (currentState == null)
 		{
@@ -38,7 +38,7 @@ public class StateManager {
 		}
 	}
 	
-	public void updateState() throws IOException
+	public void updateState()
 	{
 		if(currentState != null)
 		{
@@ -52,7 +52,7 @@ public class StateManager {
 	}
 
 	@Deprecated
-	public void activateState() throws IOException {
+	public void activateState() {
 		
 		if(currentState != null)
 		{
