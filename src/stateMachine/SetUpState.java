@@ -3,6 +3,14 @@ package stateMachine;
 import consoleUI.GameSettings;
 import consoleUI.SettingsMenu;
 
+/**
+ * SetUpState - this is the state this is initially called to start the game running upon each cycle.
+ * The setUpstate passes the gameSettings object to the settingsMenu so that it can be populated and passed onto the playState
+ * 
+ * @author mike
+ *
+ */
+
 public class SetUpState implements GameState {
 
 	private StateManager stateManager;
@@ -27,11 +35,10 @@ public class SetUpState implements GameState {
 	}
 
 	@Override
-	public void initiateState() {
-		
+	public void initiateState() {		
 		gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);
-		menu.menuController();
+		menu.initController();
 		updateState();
 	}
 

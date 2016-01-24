@@ -1,6 +1,14 @@
 package gameManager;
 
+
+
 import PlayerObjs.Player;
+
+
+/**
+ * Game object - this object holds the information of each game played, winners, looser, etc
+ * 
+ */
 
 public class Game {
 
@@ -79,7 +87,6 @@ public class Game {
 		return numberOfRounds - looserWins - winnerWins;
 	}
 
-	
 	
 	
 }

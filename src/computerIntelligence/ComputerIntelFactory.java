@@ -1,6 +1,12 @@
 package computerIntelligence;
 
-
+/**
+ * Computer intelligence factory not used - 
+ * however it is available should user wish to increase availability of intelligence levels.
+ * Specify Novice or Intermediate to obtain a level of Intelligence
+ * @author mike
+ *
+ */
 public class ComputerIntelFactory {
 
 	

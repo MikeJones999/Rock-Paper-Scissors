@@ -1,21 +1,13 @@
 package GameObjs;
 
+/**
+ * NullObj class used as part of NullObject design pattern - instead of throwing an exception 
+ * a nullobject is return which on comparison demands that player chooses another object
+ * @author mike
+ *
+ */
 public class NullObj extends GameObj{
 
-	@Override
-	public int beats(Rock rock) {
-		return 0;
-	}
-
-	@Override
-	public int beats(Paper paper) {
-		return 0;
-	}
-
-	@Override
-	public int beats(Scissors paper) {
-		return 0;
-	}
 
 	@Override
 	public String toString() {
@@ -24,8 +16,9 @@ public class NullObj extends GameObj{
 
 	@Override
 	public int beats(GameObj obj) {
-		// TODO Auto-generated method stub
-		return 0;
+		//failsafe - cause program to halt if it manages to get past reflection
+		//should never get to this point
+		return -5;
 	}
 	
 

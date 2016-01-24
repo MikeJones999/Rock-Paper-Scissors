@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import gameManager.GameEngine;
@@ -19,10 +20,8 @@ public class TestGameEngine {
 	private StateManager man;
 	
 	@Before
-	public void setUp() throws Exception {
-		
-		man = StateManager.getNewInstance();
-		
+	public void setUp() throws Exception {		
+		man = StateManager.getNewInstance();		
 	}
 
 	@After
@@ -31,23 +30,25 @@ public class TestGameEngine {
 		man.switchState(null);		
 	}
 
+	@Ignore
 	@Test
-	public void testGameEngineConstructor() throws IOException 
+	public void testGameEngineConstructor()  
 	{
 		GameEngine engine = new GameEngine(man);
 		//engine.setStateManager(man);
 		assertTrue(engine.getStateManager() instanceof StateManager);		
 	}
 	
+	@Ignore
 	@Test
-	public void testGameEngineStateManagerSetUpState() throws IOException
+	public void testGameEngineStateManagerSetUpState() 
 	{
 		GameEngine engine = new GameEngine(man);
 		assertTrue(engine.getStateManager().getGameState() instanceof SetUpState);		
 	}
 	
 	@Test
-	public void testGameEngineReturnGameStateDirect() throws IOException
+	public void testGameEngineReturnGameStateDirect() 
 	{
 		GameEngine engine = new GameEngine(man);
 		GameState state = engine.getCurrentGameState();

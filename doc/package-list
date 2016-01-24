@@ -1,0 +1,13 @@
+GameObjs
+JunitTests.AI
+JunitTests.ConsoleLineUI
+JunitTests.Factories
+JunitTests.GameManager
+JunitTests.GameObjs
+JunitTests.Player
+JunitTests.StateMachineTests
+PlayerObjs
+computerIntelligence
+consoleUI
+gameManager
+stateMachine

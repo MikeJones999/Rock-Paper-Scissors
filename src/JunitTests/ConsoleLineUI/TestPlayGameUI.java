@@ -18,19 +18,24 @@ import gameManager.Game;
 
 public class TestPlayGameUI {
 
+	private GameSettings gameSettings;
+	private PlayGameUI play;
 	@Before
 	public void setUp() throws Exception {
+		gameSettings = new GameSettings();
+		play = new PlayGameUI(gameSettings);
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		gameSettings = null;
+		play = null;
 	}
 
 	@Test
 	public void testPlayGameUIConstructorReceiveGameSettings() {
 
-	GameSettings gameSettings = new GameSettings();
-	PlayGameUI play = new PlayGameUI(gameSettings);
+	
 	assertEquals (play.getGameSettings(), gameSettings);
 	
 	}
@@ -75,7 +80,7 @@ public class TestPlayGameUI {
 		play.initiateArray();
 		play.setPlayersAndRounds();
 		//simulate returning true once game is complete
-	    assertEquals(play.playGameController(), true);
+	    assertEquals(play.initController(), true);
 	}
 	
 	@Ignore
@@ -93,7 +98,7 @@ public class TestPlayGameUI {
 		play.initiateArray();
 		play.setPlayersAndRounds();
 		//simulate returning true once game is complete
-	    assertEquals(play.playGameController(), true);	    
+	    assertEquals(play.initController(), true);	    
 	}
 	
 	@Ignore
@@ -156,7 +161,7 @@ public class TestPlayGameUI {
 		gameSettings.setPlayerOne(player1);
 		gameSettings.setPlayerTwo(player2);
 		PlayGameUI play = new PlayGameUI(gameSettings);
-		assertEquals(play.playGameController(), true);		
+		assertEquals(play.initController(), true);		
 	}
 
 	@Ignore
@@ -182,7 +187,6 @@ public class TestPlayGameUI {
 		assertEquals(play.getCurrentGame().getLooser(), player2);
 		assertEquals(play.getCurrentGame().getWinnerWins(), 3);
 		assertEquals(play.getCurrentGame().getLooserWins(), 0);
-
 	}
 	
 	
@@ -228,7 +232,7 @@ public class TestPlayGameUI {
 		gameSettings.setPlayerTwo(player2);
 
 		PlayGameUI play = new PlayGameUI(gameSettings);
-		play.playGameController();
+		play.initController();
 		List<Game> results = play.getGameResults();
 		//play two games - cannot predict outcome - testing array of games is complete
 		assertTrue(results.get(0) instanceof Game);

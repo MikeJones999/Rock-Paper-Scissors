@@ -6,6 +6,12 @@ import consoleUI.GameSettings;
 import consoleUI.PlayGameUI;
 import gameManager.Game;
 
+/**
+ * Play State compiles a List of games and passes it from the view (user interface) to the resultState.
+ * @author mike
+ *
+ */
+
 public class PlayState implements GameState {
 
 		
@@ -32,18 +38,16 @@ public class PlayState implements GameState {
 		stateManager.switchState(new ResultState(stateManager, results));		
 	}
 
-	public StateManager getStateManager() {
-	
+	public StateManager getStateManager()
+	{	
 		return stateManager;
 	}
 
 	@Override
 	public void initiateState() {
 		//call game screen and functions
-		
-		//can pass players through, and rounds. rather than gamesettings
 		PlayGameUI play = new PlayGameUI(gameSettings);
-		boolean complete = play.playGameController();
+		boolean complete = play.initController();
 		if (complete){this.results = play.getGameResults();}
 		updateState();
 	}

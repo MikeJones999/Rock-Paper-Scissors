@@ -29,11 +29,9 @@ public class TestGameObjectRules {
 	@Ignore
 	@Test
 	public void testCaluclateWin() 
-	{
-		
+	{		
 		GameObjectChoice[] gameObjArr = GameObjectChoice.getAllGameObjects();
-		GameObjectRules rules = new GameObjectRules(gameObjArr);
-		
+		GameObjectRules rules = new GameObjectRules(gameObjArr);		
 		GameObj paper = GameObj.newGameObj("Paper");
 		GameObj Scissors = GameObj.newGameObj("Scissors");
 		int result = rules.caluclateWin(paper, Scissors);
@@ -57,7 +55,7 @@ public class TestGameObjectRules {
 	{
 		GameObjectChoice[] gameObjArr = GameObjectChoice.getAllGameObjects();
 		GameObjectRules rules = new GameObjectRules(gameObjArr);
-		List<Pair> paired = rules.getNumberedPairedGameObjects();
+		List<Pair<String, Integer>> paired = rules.getNumberedPairedGameObjects();
 		assertEquals(paired.isEmpty(), true);		
 	}
 	
@@ -66,7 +64,7 @@ public class TestGameObjectRules {
 	{
 		GameObjectChoice[] gameObjArr = GameObjectChoice.getAllGameObjects();
 		GameObjectRules rules = new GameObjectRules(gameObjArr);
-		List<Pair> paired = rules.getNumberedPairedGameObjects();
+		List<Pair<String, Integer>> paired = rules.getNumberedPairedGameObjects();
 		assertEquals(paired.isEmpty(), false);		
 	}
 	
@@ -77,12 +75,12 @@ public class TestGameObjectRules {
 	{
 		GameObjectChoice[] gameObjArr = GameObjectChoice.getAllGameObjects();
 		GameObjectRules rules = new GameObjectRules(gameObjArr);
-		List<Pair> paired = rules.getNumberedPairedGameObjects();
-		assertEquals(paired.get(0).getObj().toString(), "Rock");		
-		assertEquals(paired.get(0).getValue(), 0);	
+		List<Pair<String, Integer>> paired = rules.getNumberedPairedGameObjects();
+		assertEquals(paired.get(0).getObj().toString(), "Rock");
+		assertEquals(paired.get(0).getValue(), new Integer(0));	
 	}
 	
-	@Ignore
+	@Ignore	
 	@Test
 	public void testObtainValueAndObjFromArray()
 	{

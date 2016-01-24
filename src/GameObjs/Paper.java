@@ -1,22 +1,16 @@
 package GameObjs;
 
+/**
+ * Paper GameObj - extends GameObj class
+ * @author mike
+ *
+ */
 public class Paper extends GameObj {
 
-	public int beats(Rock rock) {
 
-		return 1;
-	}
-
-	public int beats(Scissors scissors) {
-	
-		return -1;
-	}
-
-	public int beats(Paper paper2) 
-	{
-	
-		return 0;
-	}
+	//each object could be provided with it won ID - 
+	//however when extending to new classes this cannot be enforced unless static counter used.
+	//private int ranking = 0;
 
 	@Override
 	public String toString() {

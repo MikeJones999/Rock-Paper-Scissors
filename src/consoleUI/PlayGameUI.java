@@ -11,7 +11,18 @@ import PlayerObjs.Human;
 import PlayerObjs.Player;
 import gameManager.Game;
 
-public class PlayGameUI {
+
+/**
+ * This is the PlayGameUI class - user Interface for the playing of the actual game.
+ * Supposed to have used a MVC design pattern.
+ * However time restrictions - use controller method instead to call and run other methods.
+ * Model - data held in the passed GameSettings
+ * view is a console display and input. 
+ * Class is passed the gameSettings setup during initial setUpState. 
+ */
+
+
+public class PlayGameUI implements Controller {
 
 	private GameSettings gameSettings;
 	private List<Game> gameList;
@@ -32,14 +43,11 @@ public class PlayGameUI {
 	}
 
 	public List<Game> getGameResults() {
-
 		return gameList;
 	}
 
-	public void initiateArray() {
-		
+	public void initiateArray() {		
 		this.gameList = new ArrayList<>();
-
 	}
 
 	
@@ -58,19 +66,28 @@ public class PlayGameUI {
 		this.player2 = gameSettings.getPlayerTwo();
 	}	
 	
-	
+	/**
+	 * Adds a completed game to the gameList so that it can be passed later to the resultView.
+	 * @param Game
+	 */
 	public void addGameToList(Game game)
 	{
 		gameList.add(game);
 	}
 
+	
 	public Game getCurrentGame() {
 		return currentGame;
 	}
 
-	public boolean playGameController() {
-		
-		
+	/**
+	 * Initiates the user Interface for this current interaction
+	 * Calls teh PlayGame method to start the game 
+	 * adds competed games to the arrayList of Games
+	 * @return boolean once complete
+	 */
+	public boolean initController() 
+	{		
 		boolean gameComplete = false;
 		boolean session = false;
 		while(!gameComplete || !session)
@@ -94,9 +111,12 @@ public class PlayGameUI {
 			}
 		}
 		return true;
-
 	}
 
+	/**
+	 * Starts the games and continues through each round until the game round count stipulated in gamesSetting is met.
+	 * @return boolean once complete
+	 */
 	public boolean playGame(){
 		
 		int p1Count = 0;
@@ -111,28 +131,34 @@ public class PlayGameUI {
 			
 			displayGameObjectsOfChoice(player1);
 			GameObj p1Obj = playerMakeAChoiceOfGameObject(player1);
-			System.out.println(player1.getName() + " has made their choice");
+			System.out.println("------- " + player1.getName() + " has made their choice" + "------- ");
+			System.out.println("");
 			displayGameObjectsOfChoice(player2);
 			GameObj p2Obj = playerMakeAChoiceOfGameObject(player2);
-			System.out.println(player2.getName() + " has made their choice");
+			System.out.println("------- " + player2.getName() + " has made their choice" + "------- ");
+			System.out.println("");
 			System.out.print(player1.getName()+ " chose: " + p1Obj.toString() + ", ");
 			System.out.println(player2.getName()+ " chose: " + p2Obj.toString());
 			
 			int res = p1Obj.beats(p2Obj);
 			switch(res)
 			{
-				case(0): {draw++; System.out.println("Result: draw");break;}
-				case(1): {p1Count++; System.out.println("Result: " + player1.getName() + " wins"); break;}
-				case(-1): {p2Count++; System.out.println("Result: " + player2.getName() + " wins"); break;}
+				case(0): {draw++; System.out.println("Result: draw\n");break;}
+				case(1): {p1Count++; System.out.println("Result: " + player1.getName() + " wins!!!!!!!!\n"); break;}
+				case(-1): {p2Count++; System.out.println("Result: " + player2.getName() + " wins!!!!!!!\n"); break;}
 			}
+			
 			count++;
-		}
-		
+		}		
 		calculateWinnerFromScore(p1Count, p2Count, draw);
 		complete = true;
 		return complete;
 	}
 	
+	/**
+	 * Displays teh available game objects from which a user can choose. 
+	 * @param Player
+	 */
 	public void displayGameObjectsOfChoice(Player player)
 	{
 		System.out.println(player.getName() + " : please choose and type one of the following...");
@@ -148,6 +174,13 @@ public class PlayGameUI {
 		System.out.print("\n");
 	}
 	
+	/**
+	 * Returns the gameObject chosen by the player.
+	 * This method distinguishes between human and computer so that computer can make its own choice.
+	 * This will exit once a correct gameObject type has been chosen.
+	 * @param player
+	 * @return GameObj
+	 */
 	public GameObj playerMakeAChoiceOfGameObject(Player player)
 	{
 		boolean complete = false;		
@@ -169,12 +202,17 @@ public class PlayGameUI {
 				obj = player.chooseGameObj("NULL");
 				complete = true;
 			}
-		}		
+		}	
 		return obj;
 	}
 
+	/**
+	 * Calculates for each game the total winner, loser, and draws
+	 * @param player1 scores int
+	 * @param player2 scores int
+	 * @param draw scores int
+	 */
 	public void calculateWinnerFromScore(int p1, int p2, int draw) {
-
 		if(draw > p1 && draw > p2)
 		{
 			currentGame.setDraw(true);
@@ -195,10 +233,15 @@ public class PlayGameUI {
 		}			
 	}
 
+	/**
+	 * Checks to see whether another game is to be player or not
+	 * @return true for another game, false to exit
+	 */
 	public boolean endSessionAndExit() {
 
 		boolean endSession = false;
 		boolean complete = false;
+		
 		while (!complete)
 		{
 			System.out.println("Would you like to play another game? Y/N ");
@@ -207,8 +250,7 @@ public class PlayGameUI {
 			if(line.equalsIgnoreCase("Y"))
 			{
 				complete = true;
-				System.out.println("***DEBUG*** Chose to play again");
-				
+				System.out.println("***DEBUG*** Chose to play again");				
 			}
 			else if(line.equalsIgnoreCase("N"))
 			{
@@ -218,7 +260,7 @@ public class PlayGameUI {
 			else
 			{
 				System.out.println("Please enter a correct respone - Y or N");
-			}
+			}			
 		}
 		return endSession;	
 	}

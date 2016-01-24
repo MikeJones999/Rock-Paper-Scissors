@@ -1,18 +1,23 @@
 package stateMachine;
 
-import java.io.IOException;
 import java.util.List;
 
-import PlayerObjs.Player;
+import consoleUI.ResultView;
 import gameManager.Game;
+
+/**
+ * Result state deals with the transformation from Play state to ResultView (user interface)
+ * The gameList containing all the completed games is passed to the ResultView object so that it can display all results
+ * @author mike
+ *
+ */
 
 public class ResultState implements GameState {
 
 	private StateManager stateManager;
 	private List<Game> gameList;
 
-	public ResultState(StateManager stateManager) {
-		
+	public ResultState(StateManager stateManager) {		
 		this.stateManager = stateManager;
 	}
 
@@ -20,6 +25,7 @@ public class ResultState implements GameState {
 	{
 		this.stateManager = stateManager;
 		this.gameList = gameArr;
+		initiateState();
 	}
 	
 	@Override
@@ -29,9 +35,10 @@ public class ResultState implements GameState {
 	}
 
 	@Override
-	public void initiateState() {
-	
-		
+	public void initiateState() {			
+		ResultView resV = new ResultView(gameList);
+		resV.initController();
+		updateState();
 	}
 
 
@@ -43,58 +50,6 @@ public class ResultState implements GameState {
 		return gameList;
 	}
 
-	public void displayTotalResults() {
-		
-		int playerOneTotalWins = 0;
-		int playerOneIndividualHandWins = 0;
-		int playerOneIndividualsHandLoses = 0;
-		int playerTwoTotalWins = 0;
-		int playerTwoIndividualHandWins = 0;
-		int playerTwoIndividualsHandLoses = 0;
 
-
-		int totalDraws = 0;
-		
-		String playerOne = gameList.get(0).getWinner().getName();
-		String playerTwo = gameList.get(0).getLooser().getName();
-		
-		for(Game g: gameList)
-		{
-			if(!g.isDraw())
-			{
-				if(g.getWinner().getName().equals(playerOne))
-				{
-					playerOneTotalWins++;
-					playerOneIndividualHandWins =+ g.getWinnerWins();
-					playerOneIndividualsHandLoses =+ g.getWinnerLoses();
-					playerTwoIndividualHandWins =+ g.getLooserWins();
-
-				}
-				else if (g.getWinner().getName().equals(playerTwo))
-				{
-					playerTwoTotalWins++;
-					playerTwoIndividualHandWins =+ g.getWinnerWins();
-					playerTwoIndividualsHandLoses =+ g.getWinnerLoses();
-					playerOneIndividualHandWins =+ g.getLooserWins();
-
-				}
-			}
-			else
-			{
-				totalDraws++;
-			}
-			
-		}
-		
-		System.out.print(playerOne + " won: " + playerOneTotalWins + " games overall,");
-		System.out.println(" whilst they won: " + playerOneIndividualHandWins + " individual hands.");
-
-		System.out.print(playerTwo + " won: " + playerTwoTotalWins + " games overall,");
-		System.out.println(" whilst they won: " + playerTwoIndividualHandWins + " individual hands.");
-
-		System.out.println("There were: " + totalDraws + " drawn games" );
-		
-
-	}
 
 }

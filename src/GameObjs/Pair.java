@@ -1,5 +1,14 @@
 package GameObjs;
 
+
+/**
+ * Generic Pair class to hold two items - specifically used to hold String and Integer
+ * This class holds the string name of a GameObject and its incremented value
+ * @author mike
+ *
+ * @param <X>
+ * @param <Y>
+ */
 public class Pair<X,Y> {
 
 	private final X obj;

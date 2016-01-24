@@ -6,6 +6,13 @@ import computerIntelligence.Intelligence;
 import computerIntelligence.NoviceAI;
 
 
+/**
+ * Computer class - child class of Player.
+ * This class extends Player and inherits the chooseGameObj method
+ * Computer class can have the ability in the future to change its intelligence level.
+ * As standard Computer intelligence is novice.
+ */
+
 public class Computer extends Player {
 
 	
@@ -16,7 +23,7 @@ public class Computer extends Player {
 		return GameObj.newGameObj(obj);
 	}
 	
-
+	
 
 	public String intelChooseGameObj()
 	{		

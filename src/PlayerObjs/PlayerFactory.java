@@ -1,6 +1,11 @@
 package PlayerObjs;
 
-
+/**
+ * PlayerFactory - used to obtain a subclass of Player (Human/Computer)
+ * In order to not throw an exception (even though this is controlled by the gameEngine) a null player object is returned
+ * @author mike
+ *
+ */
 public class PlayerFactory {
 
 	

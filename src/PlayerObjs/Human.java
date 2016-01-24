@@ -1,7 +1,13 @@
 package PlayerObjs;
 
 import GameObjs.GameObj;
-
+ 
+/**
+  * Human Class is a child of Player class - must extend this PLayer class.
+  * 
+  * @author mike
+  *
+  */
 
 public class Human extends Player {
 

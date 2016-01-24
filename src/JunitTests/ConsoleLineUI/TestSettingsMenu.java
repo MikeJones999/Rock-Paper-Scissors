@@ -56,7 +56,7 @@ public class TestSettingsMenu {
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);
-		menu.menuController();
+		menu.initController();
 		assertEquals(menu.getComplete(), true);
 	}
 	
@@ -114,32 +114,6 @@ public class TestSettingsMenu {
 		assertTrue(gameSettings.getPlayerTwo() instanceof Human);
 	}
 	
-//	@Ignore
-//	@Test
-//	public void testAddNewPlayerNames()
-//	{
-//		GameSettings gameSettings = new GameSettings();
-//		SettingsMenu menu = new SettingsMenu(gameSettings);
-//		//createPlayers was public but through encapsulation has been made private
-//		menu.createPlayers("Human", "Computer");
-//		menu.addPlayerNames("Dave", "Jarvis");
-//		
-//		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
-//		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
-//	}
-	
-//	@Ignore
-//	@Test
-//	public void testAddNewPlayerNamesViaInput() throws IOException
-//	{
-//		GameSettings gameSettings = new GameSettings();
-//		SettingsMenu menu = new SettingsMenu(gameSettings);
-//		menu.createPlayers("Human", "Computer");
-//		menu.createPlayerNamesMenu();
-//		//Console input enter Dave and Jarvis
-//		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
-//		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");
-//	}
 	
 	@Ignore
 	@Test
@@ -147,23 +121,33 @@ public class TestSettingsMenu {
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);		
-		menu.menuController();
+		menu.initController();
 		//Console input enter Dave and Jarvis - Human and Computer Players
 		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
-		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");		
-		
+		assertEquals(gameSettings.getPlayerTwo().getName(), "(Computer) Jarvis");			
 	}
 	
+	@Ignore
 	@Test
 	public void testConstructionOfSettingMenuToPopulateGameSetting() throws IOException
 	{
 		GameSettings gameSettings = new GameSettings();
 		SettingsMenu menu = new SettingsMenu(gameSettings);		
-		menu.menuController();
+		menu.initController();
 		//Console input enter Dave and Jarvis - Human and Computer Players
 		assertEquals(gameSettings.getPlayerOne().getName(), "Dave");
 		assertEquals(gameSettings.getGameRounds(), 5);
 		
+	}
+	
+	@Test
+	public void testExitOption()
+	{
+		GameSettings gameSettings = new GameSettings();
+		SettingsMenu menu = new SettingsMenu(gameSettings);		
+		boolean complete = menu.initController();
+		
+		assertEquals(complete, false);
 	}
 	
 }

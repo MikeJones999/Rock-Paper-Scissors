@@ -49,7 +49,7 @@ public class TestStateManager {
 	public void testStartStateManager() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
-		man.startGameManager();
+		man.startGame();
 		GameState current = man.getGameState();		
 		assertTrue(current instanceof GameState);
 	}
@@ -58,7 +58,7 @@ public class TestStateManager {
 	public void testSwitchState() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
-		man.startGameManager();
+		man.startGame();
 		PlayState play = new PlayState(man);
 		man.switchState(play);
 		GameState current = man.getGameState();
@@ -69,7 +69,7 @@ public class TestStateManager {
 	public void testUpdateCurrentSetUpStatetoPlayState() throws IOException
 	{
 		//StateManager man = StateManager.getNewInstance();
-		man.startGameManager();
+		man.startGame();
 		man.updateState();
 		System.out.println(man.getGameState().toString());
 		assertTrue(man.getGameState() instanceof PlayState);
@@ -78,7 +78,7 @@ public class TestStateManager {
 	@Test
 	public void testUpdateCurrentPlayStatetoWonState() throws IOException
 	{
-		man.startGameManager();
+		man.startGame();
 		man.updateState();
 		man.updateState();
 		assertTrue(man.getGameState() instanceof ResultState);
@@ -88,7 +88,7 @@ public class TestStateManager {
 	@Test
 	public void testActivateCurrentState() throws IOException
 	{
-		man.startGameManager();
+		man.startGame();
 		man.activateState();
 	}
 	
