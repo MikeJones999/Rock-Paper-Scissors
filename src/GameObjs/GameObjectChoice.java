@@ -8,13 +8,14 @@ import java.util.Random;
  * GameObjectChoice class holds enums representing all the game objects available.
  * If a new GameObj is created then it must be added below and in a specific order...
  * see -stackoverflow.com/questions/9553058/scalable-solution-for-rock-paper-scissor
- * 
+ * Currently Set to Rock-Paper-Scissors-Lizard-Spock
  */
 
 
 public enum GameObjectChoice {
 	
-	Rock, Paper, Scissors; //lizzard, Spock;
+	//comment after scissors to play simple game
+	Rock, Paper, Scissors, Spock, Lizard;  //anything added here must match the added GameObj subClass
 
 	/**
 	 * Returns a random selection of one of the GameObjects placed within this class as an Enum
