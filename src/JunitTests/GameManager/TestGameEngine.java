@@ -44,6 +44,7 @@ public class TestGameEngine {
 	public void testGameEngineStateManagerSetUpState() 
 	{
 		GameEngine engine = new GameEngine(man);
+		engine.startStateManager();
 		assertTrue(engine.getStateManager().getGameState() instanceof SetUpState);		
 	}
 	
@@ -51,6 +52,7 @@ public class TestGameEngine {
 	public void testGameEngineReturnGameStateDirect() 
 	{
 		GameEngine engine = new GameEngine(man);
+		engine.startStateManager();
 		GameState state = engine.getCurrentGameState();
 		assertTrue(state instanceof SetUpState);
 	}

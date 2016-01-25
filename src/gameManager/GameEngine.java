@@ -25,7 +25,7 @@ public class GameEngine {
 	public GameEngine(StateManager man)  
 	{
 		this.stateManager = man;
-		startStateManager();	
+		//startStateManager();	
 	}
 
 	//Used only for Testing purposes
@@ -38,7 +38,7 @@ public class GameEngine {
 	 * Calls the stateManager's startGame Method. 
 	 * Can only be called once. Game process will start
 	 */
-	private void startStateManager()
+	public void startStateManager()
 	{
 		stateManager.startGame();		
 	}
